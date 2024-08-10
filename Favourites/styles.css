@@ -6,7 +6,7 @@
   }
   
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -16,7 +16,6 @@
     background-color: var(--background-color);
     overflow: hidden;
     width: 100%;
-    box-sizing: border-box;
   }
   
   .container {
@@ -188,6 +187,9 @@
   
   /* Mobile Styles */
   @media (max-width: 768px) {
+    .content{
+      box-sizing: border-box;
+    }
     header input {
       width: 100%;
     }
@@ -196,10 +198,13 @@
     }
     .card.maximized {
       top: 25%;
-      left: 45%;
+      left: 48%;
+      overflow: scroll;
+      max-width: 500px;
+      height: 500px;
     }
     .card {
-      margin: 2px 20px;
+      margin: 2px 10px;
     }
     #ayah-container {
       height: 80%;
@@ -208,6 +213,7 @@
         width: 100%;
         font-size: small;
     }
+
 
   }
   #search-bar::placeholder {
