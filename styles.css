@@ -10,7 +10,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     height: 100vh;
     background: var(--background-color);
@@ -30,12 +30,10 @@ header h2{
     padding-right: 20px;
 }
 #languageSelector {
-    position: relative;
     display: inline-block;
 }
 
 #languageDropdown {
-    background-color: transparent;
     border: none;
     color: var(--text-color);
     font-size: 20px;
@@ -44,8 +42,9 @@ header h2{
 
 .dropdown-content {
     display: none;
-    position: absolute;
-    right: 0;
+    position:absolute;
+    right: 1;
+    bottom: 70%;
     background-color: var(--background-color);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -69,7 +68,7 @@ header h2{
 }
 .container {
     display: flex;
-    height: calc(100% - 80px); /* Adjust based on header height */
+    height: calc(100% - 70px); /* Adjust based on header height */
 }
 
 #sidebar{
@@ -210,7 +209,9 @@ a{
         left: 10px;
         z-index: 1001;
         transition: opacity 0.3s ease-in-out;
-        /* other styles you might have */
+    }
+    .dropdown-content{
+        bottom: 75%;
     }
 
     body.sidebar-open {
@@ -227,13 +228,20 @@ a{
         flex-direction: column;
     }
     header{
-        justify-content: center;
+        justify-content:end;
         font-size: small;
+    }
+    .fa-solid{
+        font-size: medium;
     }
 
     body.sidebar-open .hamburger-menu {
         opacity: 0;
         pointer-events: none;
+    }
+    .container {
+        display: flex;
+        height: calc(100% - 58px); /* Adjust based on header height */
     }
 
 }
