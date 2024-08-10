@@ -173,6 +173,10 @@
     .main-content {
       margin-left: 0;
       padding: 10px;
+      height: calc(100vh - 180px);
+    }
+    #hadiths-list{
+      overflow-y: auto;
     }
   
     .hamburger-menu {
