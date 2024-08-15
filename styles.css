@@ -228,8 +228,9 @@ a{
         flex-direction: column;
     }
     header{
-        justify-content:end;
         font-size: small;
+        display: flex;
+        flex-direction: column;
     }
     .fa-solid{
         font-size: medium;

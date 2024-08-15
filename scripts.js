@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const html = `
             <h1>${data.translation.surah.englishName} (${data.translation.surah.name})</h1>
-            <p><strong>Ayah ${data.translation.numberInSurah}</strong></p>
+            <p><strong>${data.translation.surah.number}:${data.translation.numberInSurah}</strong></p>
             <div class="arabic">
                 <p>${arabicText}</p>
             </div>
@@ -234,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         content.innerHTML = html;
     }
+    
 
     function loadSurah(surahNumber) {
         currentSurahNumber = surahNumber;
@@ -291,30 +292,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displaySurah(arabicData, translationData = null) {
         if (!arabicData) return;
-
+    
         let html = `<h1>${arabicData.name} (${arabicData.englishName})</h1>`;
+        const surahNumber = arabicData.number;
+    
         for (let i = 0; i < arabicData.ayahs.length; i++) {
+            const arabicAyah = arabicData.ayahs[i];
+            const translationAyah = translationData ? translationData.ayahs[i] : null;
+            const ayahNumber = arabicAyah.numberInSurah;
             html += `
                 <div class="arabic">
-                    <p>${arabicData.ayahs[i].text}</p>
+                    <p><div style="font-size:20px; padding-bottom:15px;" ><br/>${surahNumber}:${ayahNumber}<br/></div>${arabicAyah.text}</p>
                 </div>
-                ${currentMode === 'translate' ? `
+                ${currentMode === 'translate' && translationAyah ? `
                     <div class="translation">
-                        <p>${translationData.ayahs[i].text}</p>
+                        <p>${translationAyah.text}</p>
                     </div>` : ''}
             `;
         }
         content.innerHTML = html;
     }
-
     function displayJuz(arabicAyahs, translationAyahs = []) {
         if (!arabicAyahs) return;
-
+    
         let html = `<h1>Juz ${currentJuzNumber}</h1>`;
         for (let i = 0; i < arabicAyahs.length; i++) {
             html += `
                 <div class="arabic">
-                    <p>${arabicAyahs[i].text}</p>
+                    <p><div style="font-size:20px; padding-bottom:15px;" ><br/>${arabicAyahs[i].surah.number}:${arabicAyahs[i].numberInSurah}<br/></div>${arabicAyahs[i].text}</p>
                 </div>
                 ${currentMode === 'translate' ? `
                     <div class="translation">
