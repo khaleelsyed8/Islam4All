@@ -1389,9 +1389,9 @@ function initEventListeners() {
   });
 
   // Footer links (temporary - update with your actual pages)
-  elements.feelingsLink.href = "/Favourites/";
+  elements.feelingsLink.href = "/Favourites/index.html";
 
-  elements.hadithLink.href = "/Ahadiths/";
+  elements.hadithLink.href = "/Ahadiths/index.html";
 
   // Keyboard shortcuts
   document.addEventListener("keydown", (e) => {
