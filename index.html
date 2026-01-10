@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Qur'an for All
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  
+  <body>
+    <!-- Loading Screen -->
+    <div id="loader">
+      <div class="loader-content">
+        <div class="loader-icon">
+          <i class="fas fa-book-quran">
+          </i>
+        </div>
+        <p class="loader-text">
+          Peace be upon you
+        </p>
+      </div>
+    </div>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1 class="logo">
+          <a href="index.html">
+            Qur'an for All
+          </a>
+        </h1>
+        <div class="header-actions">
+          <button class="icon-btn" onclick="handlers.startTour()" title="How to use">
+            <i class="fas fa-question-circle"></i>
+          </button>
+          <button class="icon-btn" id="languageBtn" aria-label="Change Language"
+          title="Change Language">
+            <i class="fas fa-globe">
+            </i>
+          </button>
+          <button class="icon-btn" id="bookmarksBtn" aria-label="Bookmarks" title="My Bookmarks">
+            <i class="fas fa-bookmark">
+            </i>
+            <span class="badge" id="bookmarkBadge">
+              0
+            </span>
+          </button>
+          <button class="icon-btn" id="progressBtn" aria-label="Reading Progress"
+          title="Reading Progress">
+            <i class="fas fa-chart-line">
+            </i>
+          </button>
+          <button class="icon-btn" id="darkModeBtn" aria-label="Toggle Dark Mode"
+          title="Dark Mode">
+            <i class="far fa-moon">
+            </i>
+          </button>
+        </div>
+      </div>
+      <!-- Language Dropdown -->
+      <div class="dropdown-menu" id="languageMenu">
+        <button class="dropdown-item" data-lang="en">
+          English
+        </button>
+        <button class="dropdown-item" data-lang="ur">
+          Urdu
+        </button>
+        <button class="dropdown-item" data-lang="es">
+          Spanish
+        </button>
+        <button class="dropdown-item" data-lang="fr">
+          French
+        </button>
+      </div>
+    </header>
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Sidebar Toggle Button -->
+      <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Sidebar">
+        <i class="fas fa-chevron-left">
+        </i>
+      </button>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <span>
+        </span>
+        <span>
+        </span>
+        <span>
+        </span>
+      </button>
+      <!-- Floating Search Button (Mobile) -->
+      <button class="floating-search-btn" id="floatingSearchBtn" aria-label="Search">
+        <i class="fas fa-search">
+        </i>
+      </button>
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="tab-group">
+            <button class="tab-btn active" data-view="surah">
+              Surah
+            </button>
+            <button class="tab-btn" data-view="juz">
+              Juz
+            </button>
+          </div>
+        </div>
+        <div class="search-box">
+          <i class="fas fa-search">
+          </i>
+          <input type="text" id="searchInput" placeholder="Search surah, juz, or ayah..."
+          autocomplete="off">
+        </div>
+        <div class="sidebar-content" id="sidebarContent">
+          <!-- Content populated by JS -->
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="main">
+        <div class="content-header">
+          <div class="mode-toggle">
+            <button class="mode-btn active" data-mode="translate">
+              <i class="fas fa-language">
+              </i>
+              <span>
+                Translation
+              </span>
+            </button>
+            <button class="mode-btn" data-mode="read">
+              <i class="fas fa-book-open">
+              </i>
+              <span>
+                Arabic
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content" id="content">
+            <div class="welcome-screen">
+              <i class="fas fa-book-quran">
+              </i>
+              <h2>
+                Welcome to Qur'an for All
+              </h2>
+              <p>
+                Loading Surah Al-Fatiha...
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Audio Player -->
+        <div class="audio-player" id="audioPlayer">
+          <div class="audio-controls">
+            <button class="audio-btn" id="prevAyahBtn" title="Previous Ayah">
+              <i class="fas fa-step-backward">
+              </i>
+            </button>
+            <button class="audio-btn play-btn" id="playPauseBtn" title="Play">
+              <i class="fas fa-play">
+              </i>
+            </button>
+            <button class="audio-btn" id="nextAyahBtn" title="Next Ayah">
+              <i class="fas fa-step-forward">
+              </i>
+            </button>
+            <div class="audio-info">
+              <span id="audioAyahInfo">
+                No audio loaded
+              </span>
+            </div>
+            <button class="audio-btn" id="closeAudioBtn" title="Close Player">
+              <i class="fas fa-times">
+              </i>
+            </button>
+          </div>
+          <div class="audio-progress">
+            <div class="audio-progress-bar" id="audioProgressBar">
+            </div>
+          </div>
+        </div>
+        <!-- Compact Footer with Toggle -->
+        <footer class="main-footer" id="mainFooter">
+          <button class="footer-toggle-btn" id="footerToggleBtn">
+            <i class="fas fa-chevron-up">
+            </i>
+          </button>
+          <div class="footer-content" id="footerContent">
+            <div class="footer-links">
+              <a href="#" class="footer-link" id="feelingsLink">
+                <i class="fas fa-heart">
+                </i>
+                <span>
+                  Feelings
+                </span>
+                <small>
+                  Find comfort in verses
+                </small>
+              </a>
+              <a href="#" class="footer-link" id="hadithLink">
+                <i class="fas fa-book">
+                </i>
+                <span>
+                  Hadith
+                </span>
+                <small>
+                  Prophetic traditions
+                </small>
+              </a>
+            </div>
+            <p class="footer-credits">
+              Made with
+              <i class="fas fa-heart">
+              </i>
+              for the community
+            </p>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <!-- Bookmarks Modal -->
+    <div class="modal" id="bookmarksModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>
+            <i class="fas fa-bookmark">
+            </i>
+            My Bookmarks
+          </h2>
+          <button class="icon-btn" id="closeBookmarksBtn">
+            <i class="fas fa-times">
+            </i>
+          </button>
+        </div>
+        <div class="modal-body" id="bookmarksContent">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+    <!-- Progress Modal -->
+    <div class="modal" id="progressModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>
+            <i class="fas fa-chart-line">
+            </i>
+            Reading Progress
+          </h2>
+          <button class="icon-btn" id="closeProgressBtn">
+            <i class="fas fa-times">
+            </i>
+          </button>
+        </div>
+        <div class="modal-body" id="progressContent">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+    <audio id="audioElement" preload="metadata">
+    </audio>
+    <script src="app.js">
+    </script>
+  </body>
+
+</html>

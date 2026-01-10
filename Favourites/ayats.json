@@ -1,0 +1,374 @@
+{
+  "happy": [
+    {
+      "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+      "translation": "All praise is due to Allah, Lord of all the worlds.",
+      "verse": "1:2",
+      "audioNumber": 2
+    },
+    {
+      "arabic": "لَىِٕن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+      "translation": "If you are grateful, I will surely increase you in favor.",
+      "verse": "14:7",
+      "audioNumber": 1757
+    },
+    {
+      "arabic": "فَٱذْكُرُونِىٓ أَذْكُرْكُمْ",
+      "translation": "So remember Me; I will remember you.",
+      "verse": "2:152",
+      "audioNumber": 159
+    },
+    {
+      "arabic": "وَوَجَدَكَ ضَآلًّۭا فَهَدَىٰ",
+      "translation": "And He found you lost and guided you.",
+      "verse": "93:7",
+      "audioNumber": 6086
+    },
+    {
+      "arabic": "وَٱذْكُرُوا۟ نِعْمَتَ ٱللَّهِ عَلَيْكُمْ",
+      "translation": "And remember the favor of Allah upon you.",
+      "verse": "3:103",
+      "audioNumber": 396
+    },
+    {
+      "arabic": "وَمَا تَوْفِيقِىٓ إِلَّا بِٱللَّهِ",
+      "translation": "And my success is not but through Allah.",
+      "verse": "11:88",
+      "audioNumber": 1561
+    }
+  ],
+  "sad": [
+    {
+      "arabic": "إِنَّ مَعَ ٱلۡعُسۡرِ یُسۡرࣰا",
+      "translation": "Indeed, with hardship comes ease.",
+      "verse": "94:6",
+      "audioNumber": 6096
+    },
+    {
+      "arabic": "فَإِنَّ مَعَ ٱلۡعُسۡرِ یُسۡرًا",
+      "translation": "Verily, with every difficulty there is relief.",
+      "verse": "94:5",
+      "audioNumber": 6095
+    },
+    {
+      "arabic": "وَلَا تَيْأَسُوا۟ مِن رَّوْحِ ٱللَّهِ",
+      "translation": "And despair not of relief from Allah.",
+      "verse": "12:87",
+      "audioNumber": 1683
+    },
+    {
+      "arabic": "وَرَحْمَتِى وَسِعَتْ كُلَّ شَىْءٍۢ",
+      "translation": "My mercy encompasses all things.",
+      "verse": "7:156",
+      "audioNumber": 1110
+    },
+    {
+      "arabic": "لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ",
+      "translation": "Do not despair of the mercy of Allah.",
+      "verse": "39:53",
+      "audioNumber": 4111
+    },
+    {
+      "arabic": "فَٱصْبِرْ إِنَّ وَعْدَ ٱللَّهِ حَقٌّۭ",
+      "translation": "So be patient. Indeed, the promise of Allah is truth.",
+      "verse": "30:60",
+      "audioNumber": 3469
+    },
+    {
+      "arabic": "وَبَشِّرِ ٱلصَّـٰبِرِينَ",
+      "translation": "And give good tidings to the patient.",
+      "verse": "2:155",
+      "audioNumber": 162
+    },
+    {
+      "arabic": "إِنَّ ٱللَّهَ مَعَ ٱلصَّـٰبِرِينَ",
+      "translation": "Indeed, Allah is with the patient.",
+      "verse": "2:153",
+      "audioNumber": 160
+    }
+  ],
+  "hope": [
+    {
+      "arabic": "وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ",
+      "translation": "And whoever relies upon Allah - then He is sufficient for him.",
+      "verse": "65:3",
+      "audioNumber": 5220
+    },
+    {
+      "arabic": "إِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ",
+      "translation": "Indeed, Allah does not allow the reward of those who do good to be lost.",
+      "verse": "9:120",
+      "audioNumber": 1355
+    },
+    {
+      "arabic": "فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا",
+      "translation": "For indeed, with hardship will be ease.",
+      "verse": "94:5",
+      "audioNumber": 6091
+    },
+    {
+      "arabic": "وَٱللَّهُ خَيْرُ ٱلرَّٰزِقِينَ",
+      "translation": "And Allah is the best of providers.",
+      "verse": "62:11",
+      "audioNumber": 5188
+    },
+    {
+      "arabic": "حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ",
+      "translation": "Sufficient for us is Allah, and He is the best Disposer of affairs.",
+      "verse": "3:173",
+      "audioNumber": 466
+    }
+  ],
+  "patience": [
+    {
+      "arabic": "وَٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ",
+      "translation": "And seek help through patience and prayer.",
+      "verse": "2:45",
+      "audioNumber": 52
+    },
+    {
+      "arabic": "إِنَّمَا يُوَفَّى ٱلصَّـٰبِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍۢ",
+      "translation": "Indeed, the patient will be given their reward without account.",
+      "verse": "39:10",
+      "audioNumber": 4068
+    },
+    {
+      "arabic": "فَٱصْبِرْ صَبْرًۭا جَمِيلًۭا",
+      "translation": "So be patient with gracious patience.",
+      "verse": "70:5",
+      "audioNumber": 5380
+    },
+    {
+      "arabic": "وَلَنَبْلُوَنَّكُم بِشَىْءٍۢ مِّنَ ٱلْخَوْفِ وَٱلْجُوعِ",
+      "translation": "And We will surely test you with something of fear and hunger.",
+      "verse": "2:155",
+      "audioNumber": 162
+    },
+    {
+      "arabic": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱصْبِرُوا۟ وَصَابِرُوا۟",
+      "translation": "O you who believe, persevere and endure.",
+      "verse": "3:200",
+      "audioNumber": 493
+    }
+  ],
+  "gratitude": [
+    {
+      "arabic": "لَىِٕن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+      "translation": "If you are grateful, I will surely increase you in favor.",
+      "verse": "14:7",
+      "audioNumber": 1757
+    },
+    {
+      "arabic": "فَٱذْكُرُونِىٓ أَذْكُرْكُمْ وَٱشْكُرُوا۟ لِى",
+      "translation": "So remember Me; I will remember you. And be grateful to Me.",
+      "verse": "2:152",
+      "audioNumber": 159
+    },
+    {
+      "arabic": "وَقَلِيلٌۭ مِّنْ عِبَادِىَ ٱلشَّكُورُ",
+      "translation": "And few of My servants are grateful.",
+      "verse": "34:13",
+      "audioNumber": 3619
+    },
+    {
+      "arabic": "لَّىِٕن كَفَرْتُمْ إِنَّ ٱللَّهَ لَغَنِىٌّ عَنكُمْ",
+      "translation": "If you disbelieve, indeed Allah is Free from need of you.",
+      "verse": "39:7",
+      "audioNumber": 4065
+    }
+  ],
+  "guidance": [
+    {
+      "arabic": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
+      "translation": "Guide us to the straight path.",
+      "verse": "1:6",
+      "audioNumber": 6
+    },
+    {
+      "arabic": "وَٱلَّذِينَ جَٰهَدُوا۟ فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
+      "translation": "And those who strive for Us - We will surely guide them to Our ways.",
+      "verse": "29:69",
+      "audioNumber": 3409
+    },
+    {
+      "arabic": "إِنَّ هَٰذَا ٱلْقُرْءَانَ يَهْدِى لِلَّتِى هِىَ أَقْوَمُ",
+      "translation": "Indeed, this Quran guides to that which is most suitable.",
+      "verse": "17:9",
+      "audioNumber": 2038
+    },
+    {
+      "arabic": "يُرِيدُ ٱللَّهُ بِكُمُ ٱلْيُسْرَ وَلَا يُرِيدُ بِكُمُ ٱلْعُسْرَ",
+      "translation": "Allah intends for you ease and does not intend for you hardship.",
+      "verse": "2:185",
+      "audioNumber": 192
+    },
+    {
+      "arabic": "وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًۭا",
+      "translation": "And whoever fears Allah - He will make for him a way out.",
+      "verse": "65:2",
+      "audioNumber": 5219
+    }
+  ],
+  "trust": [
+    {
+      "arabic": "وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ",
+      "translation": "And whoever puts his trust in Allah, He will be enough for him.",
+      "verse": "65:3",
+      "audioNumber": 5220
+    },
+    {
+      "arabic": "حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ",
+      "translation": "Sufficient for us is Allah, and He is the best Disposer of affairs.",
+      "verse": "3:173",
+      "audioNumber": 466
+    },
+    {
+      "arabic": "وَمَا تَوْفِيقِىٓ إِلَّا بِٱللَّهِ",
+      "translation": "And my success is not but through Allah.",
+      "verse": "11:88",
+      "audioNumber": 1561
+    },
+    {
+      "arabic": "وَٱللَّهُ غَالِبٌ عَلَىٰٓ أَمْرِهِۦ",
+      "translation": "And Allah is predominant over His affair.",
+      "verse": "12:21",
+      "audioNumber": 1617
+    },
+    {
+      "arabic": "وَكَفَىٰ بِٱللَّهِ وَكِيلًۭا",
+      "translation": "And sufficient is Allah as Disposer of affairs.",
+      "verse": "4:81",
+      "audioNumber": 574
+    }
+  ],
+  "peace": [
+    {
+      "arabic": "أَلَا بِذِكْرِ ٱللَّهِ تَطْمَىِٕنُّ ٱلْقُلُوبُ",
+      "translation": "Verily, in the remembrance of Allah do hearts find rest.",
+      "verse": "13:28",
+      "audioNumber": 1735
+    },
+    {
+      "arabic": "هُوَ ٱلَّذِىٓ أَنزَلَ ٱلسَّكِينَةَ فِى قُلُوبِ ٱلْمُؤْمِنِينَ",
+      "translation": "It is He who sent down tranquility into the hearts of the believers.",
+      "verse": "48:4",
+      "audioNumber": 4587
+    },
+    {
+      "arabic": "وَٱللَّهُ يَدْعُوٓا۟ إِلَىٰ دَارِ ٱلسَّلَـٰمِ",
+      "translation": "And Allah invites to the Home of Peace.",
+      "verse": "10:25",
+      "audioNumber": 1389
+    },
+    {
+      "arabic": "فَلَا تَخَافُوهُمْ وَخَافُونِ إِن كُنتُم مُّؤْمِنِينَ",
+      "translation": "So fear them not, but fear Me, if you are believers.",
+      "verse": "3:175",
+      "audioNumber": 468
+    }
+  ],
+  "angry": [
+    {
+      "arabic": "وَٱلْكَـٰظِمِينَ ٱلْغَيْظَ وَٱلْعَافِينَ عَنِ ٱلنَّاسِ",
+      "translation": "Who restrain anger and who pardon the people.",
+      "verse": "3:134",
+      "audioNumber": 427
+    },
+    {
+      "arabic": "خُذِ ٱلْعَفْوَ وَأْمُرْ بِٱلْعُرْفِ وَأَعْرِضْ عَنِ ٱلْجَـٰهِلِينَ",
+      "translation": "Take what is given freely, and command what is good, and turn away from the ignorant.",
+      "verse": "7:199",
+      "audioNumber": 1153
+    },
+    {
+      "arabic": "وَلَا تَسْتَوِى ٱلْحَسَنَةُ وَلَا ٱلسَّيِّئَةُ ۚ ٱدْفَعْ بِٱلَّتِى هِىَ أَحْسَنُ",
+      "translation": "And not equal are the good deed and the bad. Repel evil by that which is better.",
+      "verse": "41:34",
+      "audioNumber": 4252
+    },
+    {
+      "arabic": "وَإِذَا مَا غَضِبُوا۟ هُمْ يَغْفِرُونَ",
+      "translation": "And who, when they are angry, they forgive.",
+      "verse": "42:37",
+      "audioNumber": 4309
+    }
+  ],
+  "anxious": [
+    {
+      "arabic": "أَلَا بِذِكْرِ ٱللَّهِ تَطْمَىِٕنُّ ٱلْقُلُوبُ",
+      "translation": "Verily, in the remembrance of Allah do hearts find rest.",
+      "verse": "13:28",
+      "audioNumber": 1735
+    },
+    {
+      "arabic": "فَلَا تَخَافُوهُمْ وَخَافُونِ إِن كُنتُم مُّؤْمِنِينَ",
+      "translation": "So fear them not, but fear Me, if you are believers.",
+      "verse": "3:175",
+      "audioNumber": 468
+    },
+    {
+      "arabic": "لَا تَحْزَنْ إِنَّ ٱللَّهَ مَعَنَا",
+      "translation": "Do not grieve; indeed Allah is with us.",
+      "verse": "9:40",
+      "audioNumber": 1275
+    },
+    {
+      "arabic": "وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًۭا",
+      "translation": "And whoever fears Allah - He will make for him a way out.",
+      "verse": "65:2",
+      "audioNumber": 5219
+    }
+  ],
+  "blessed": [
+    {
+      "arabic": "وَجَعَلَنِى مُبَارَكًا أَيْنَ مَا كُنتُ",
+      "translation": "And He has made me blessed wherever I am.",
+      "verse": "19:31",
+      "audioNumber": 2281
+    },
+    {
+      "arabic": "وَنَزَّلْنَا عَلَيْكَ ٱلْكِتَـٰبَ تِبْيَـٰنًۭا لِّكُلِّ شَىْءٍۢ",
+      "translation": "And We have sent down to you the Book as clarification for all things.",
+      "verse": "16:89",
+      "audioNumber": 1990
+    },
+    {
+      "arabic": "وَإِن تَعُدُّوا۟ نِعْمَةَ ٱللَّهِ لَا تُحْصُوهَآ",
+      "translation": "And if you should count the favors of Allah, you could not enumerate them.",
+      "verse": "16:18",
+      "audioNumber": 1919
+    },
+    {
+      "arabic": "وَمَآ أُوتِيتُم مِّن شَىْءٍۢ فَمَتَـٰعُ ٱلْحَيَوٰةِ ٱلدُّنْيَا",
+      "translation": "And whatever thing you have been given - it is but for enjoyment of the worldly life.",
+      "verse": "28:60",
+      "audioNumber": 3312
+    }
+  ],
+  "good": [
+    {
+      "arabic": "وَأَحْسِنُوٓا۟ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُحْسِنِينَ",
+      "translation": "And do good; indeed, Allah loves those who do good.",
+      "verse": "2:195",
+      "audioNumber": 202
+    },
+    {
+      "arabic": "فَٱسْتَبِقُوا۟ ٱلْخَيْرَٰتِ",
+      "translation": "So race to all that is good.",
+      "verse": "2:148",
+      "audioNumber": 155
+    },
+    {
+      "arabic": "مَنْ عَمِلَ صَـٰلِحًۭا فَلِنَفْسِهِۦ",
+      "translation": "Whoever does righteousness - it is for his own soul.",
+      "verse": "41:46",
+      "audioNumber": 4264
+    },
+    {
+      "arabic": "وَمَا تُقَدِّمُوا۟ لِأَنفُسِكُم مِّنْ خَيْرٍۢ تَجِدُوهُ عِندَ ٱللَّهِ",
+      "translation": "And whatever good you put forward for yourselves - you will find it with Allah.",
+      "verse": "2:110",
+      "audioNumber": 117
+    }
+  ]
+}

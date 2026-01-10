@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadith for All</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <p class="loader-text">Peace be upon you</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">
+                <a href="/Ahadiths/">Hadith for All</a>
+            </h1>
+            <div class="header-actions">
+                <button class="icon-btn" id="bookmarksBtn" aria-label="Bookmarks" title="My Bookmarks">
+                    <i class="fas fa-bookmark"></i>
+                    <span class="badge" id="bookmarkBadge">0</span>
+                </button>
+                <button class="icon-btn" id="darkModeBtn" aria-label="Toggle Dark Mode" title="Dark Mode">
+                    <i class="far fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Toggle Button -->
+        <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle Sidebar">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Floating Search Button (Mobile) -->
+        <button class="floating-search-btn" id="floatingSearchBtn" aria-label="Search">
+            <i class="fas fa-search"></i>
+        </button>
+
+        <!-- Sidebar (Collections) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Collections</h2>
+            </div>
+
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search: 'Bukhari 123' or 'Muslim' or 'Abu Dawud 456'"
+                autocomplete="off"
+                >
+            </div>
+
+            <div class="sidebar-content" id="sidebarContent">
+                <!-- Collections populated by JS -->
+            </div>
+        </aside>
+
+        <!-- Sub-Sidebar (Books/Sections) -->
+        <aside class="sub-sidebar hidden" id="subSidebar">
+            <div class="sidebar-header">
+                <h2>Books</h2>
+            </div>
+
+            <div class="sidebar-content" id="subSidebarContent">
+                <!-- Books populated by JS -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="content-wrapper">
+                <div class="content" id="content">
+                    <div class="welcome-screen">
+                        <i class="fas fa-book"></i>
+                        <h2>Welcome to Hadith for All</h2>
+                        <p>Abu Huraira reported: The Messenger of Allah ﷺ said:</p>
+                        <div class="featured-hadith">
+                            <p class="arabic-text">وَمَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ</p>
+                            <p>"Whoever travels a path in search of knowledge, Allah will make easy for him a path to Paradise."</p>
+                            <p class="hadith-source"><strong>Source:</strong> Ṣaḥīḥ Muslim 2699</p>
+                        </div>
+                        <p class="instruction">Select a collection to begin reading</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compact Footer with Toggle -->
+            <footer class="main-footer" id="mainFooter">
+                <button class="footer-toggle-btn" id="footerToggleBtn">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <div class="footer-content" id="footerContent">
+                    <div class="footer-links">
+                        <a href="../" class="footer-link" id="quranLink">
+                            <i class="fas fa-book-quran"></i>
+                            <span>Qur'an</span>
+                            <small>Read the Holy Qur'an</small>
+                        </a>
+                        <a href="../Favourites/" class="footer-link" id="feelingsLink">
+                            <i class="fas fa-heart"></i>
+                            <span>Feelings</span>
+                            <small>Find comfort in verses</small>
+                        </a>
+                    </div>
+                    <p class="footer-credits">Made with <i class="fas fa-heart"></i> for the community</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Bookmarks Modal -->
+    <div class="modal" id="bookmarksModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-bookmark"></i> My Bookmarks</h2>
+                <button class="icon-btn" id="closeBookmarksBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="bookmarksContent">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

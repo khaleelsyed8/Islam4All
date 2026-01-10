@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solace - Find Peace Through Verses</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1'/%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Cpath d='M 32,12 L 36,28 L 52,32 L 36,36 L 32,52 L 28,36 L 12,32 L 28,28 Z' fill='%23fbbf24' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E">
+  
+  <!-- Meta Tags -->
+  <meta name="description" content="Find peace and comfort through Quranic verses matched to your mood">
+  <meta name="theme-color" content="#6366f1">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <svg class="brand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+        </svg>
+        <span><a href="/Favourites/">Solace</a></span>
+      </div>
+      <button class="nav-bookmarks-btn" id="open-bookmarks" title="Bookmarks">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M6 2h12a1 1 0 0 1 1 1v19l-7-4-7 4V3a1 1 0 0 1 1-1z"/>
+  </svg>
+</button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">How are you feeling today?</h1>
+        <p class="hero-subtitle">Find comfort in verses that speak to your heart</p>
+        
+        <!-- Search Bar -->
+        <div class="search-wrapper">
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input 
+            type="text" 
+            id="search-bar" 
+            class="search-input"
+            placeholder=""
+            autocomplete="off"
+          >
+          <button class="search-btn" id="search-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mood Pills -->
+        <div class="mood-pills" id="mood-pills">
+          <button class="mood-pill" data-mood="happy">😊 Happy</button>
+          <button class="mood-pill" data-mood="sad">😢 Sad</button>
+          <button class="mood-pill" data-mood="hope">✨ Hope</button>
+          <button class="mood-pill" data-mood="patience">⏳ Patience</button>
+          <button class="mood-pill" data-mood="gratitude">🙏 Gratitude</button>
+          <button class="mood-pill" data-mood="guidance">🧭 Guidance</button>
+          <button class="mood-pill" data-mood="trust">🤲 Trust</button>
+          <button class="mood-pill" data-mood="peace">☮️ Peace</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Results Section -->
+    <main class="results" id="results">
+      <!-- Loading State -->
+      <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>Finding verses for you...</p>
+      </div>
+
+      <!-- Results Header -->
+      <div class="results-header" id="results-header">
+        <button class="back-btn" id="back-btn">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Back
+        </button>
+        <div class="results-title">
+          <h2 id="mood-title">Verses</h2>
+          <p id="verse-count"></p>
+        </div>
+      </div>
+
+      <!-- Verse Cards -->
+      <div class="verse-grid" id="verse-container"></div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="empty-state">
+        <svg class="empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <h3>No verses found</h3>
+        <p>Try searching for a different mood or feeling</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for Expanded View -->
+  <div class="modal" id="modal">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-section">
+    <a href="../" class="nav-link">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        Read Qur'an
+      </a>
+      <a href="../Ahadiths/" class="nav-link">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+        </svg>
+        Read Hadith
+      </a>
+      </div>
+  </footer>
+<div class="bookmarks-modal" id="bookmarks-modal">
+  <div class="bookmarks-overlay"></div>
+
+  <div class="bookmarks-panel">
+    <div class="bookmarks-header">
+      <div class="sheet-handle"></div>
+      <h3>Bookmarked Verses</h3>
+      <button id="close-bookmarks">✕</button>
+    </div>
+
+    <div class="bookmarks-list" id="bookmarks-list">
+      <!-- injected via JS -->
+    </div>
+  </div>
+</div>
+
+  <!-- Script -->
+  <script src="scripts.js"></script>
+</body>
+</html>
