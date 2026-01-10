@@ -453,6 +453,8 @@ input {
     flex: 1;
     overflow-y: auto;
     padding: var(--spacing-sm);
+    padding-bottom: 80px !important; 
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
 }
 
 .sidebar-content::-webkit-scrollbar {
