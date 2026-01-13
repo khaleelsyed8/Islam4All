@@ -1,0 +1,796 @@
+{
+  "names": [
+    {
+      "number": 1,
+      "arabic": "ٱلرَّحْمَـٰنُ",
+      "transliteration": "Ar-Rahman",
+      "meaning": "The Most Merciful",
+      "description": "The One whose mercy encompasses all of creation, providing for both believers and non-believers in this world.",
+      "benefit": "Reciting this name brings compassion and mercy into your life and softens the heart."
+    },
+    {
+      "number": 2,
+      "arabic": "ٱلرَّحِيمُ",
+      "transliteration": "Ar-Raheem",
+      "meaning": "The Bestower of Mercy",
+      "description": "He who acts with extreme kindness",
+      "benefit": "Brings divine mercy and forgiveness. Relieves grief and anxiety when recited regularly."
+    },
+    {
+      "number": 3,
+      "arabic": "ٱلْمَلِكُ",
+      "transliteration": "Al-Malik",
+      "meaning": "The King",
+      "description": "The Sovereign Lord, Master of all dominion who has total control over all creation.",
+      "benefit": "Grants respect and dignity. Protects from oppression when recited with conviction."
+    },
+    {
+      "number": 4,
+      "arabic": "ٱلْقُدُّوسُ",
+      "transliteration": "Al-Quddus",
+      "meaning": "The Most Holy",
+      "description": "The One who is pure, perfect, and free from any defect or imperfection.",
+      "benefit": "Purifies the heart from negative traits and brings spiritual cleanliness."
+    },
+    {
+      "number": 5,
+      "arabic": "ٱلسَّلَامُ",
+      "transliteration": "As-Salam",
+      "meaning": "The Source of Peace",
+      "description": "The One who is free from all defects and the giver of peace and safety.",
+      "benefit": "Brings peace of mind, safety from harm, and protection from calamities."
+    },
+    {
+      "number": 6,
+      "arabic": "ٱلْمُؤْمِنُ",
+      "transliteration": "Al-Mu'min",
+      "meaning": "The Infuser of Faith",
+      "description": "The One who grants security and removes fear from the hearts of believers.",
+      "benefit": "Strengthens faith and removes fear. Grants security and protection from danger."
+    },
+    {
+      "number": 7,
+      "arabic": "ٱلْمُهَيْمِنُ",
+      "transliteration": "Al-Muhaymin",
+      "meaning": "The Guardian",
+      "description": "The One who witnesses all things, protects and guards His creation with perfect care.",
+      "benefit": "Provides protection and guardianship. Safeguards from evil and harmful situations."
+    },
+    {
+      "number": 8,
+      "arabic": "ٱلْعَزِيزُ",
+      "transliteration": "Al-Aziz",
+      "meaning": "The Almighty",
+      "description": "The All-Powerful, the One who cannot be overcome, the Strong and Victorious.",
+      "benefit": "Grants strength, honor, and victory over difficulties. Removes humiliation and weakness."
+    },
+    {
+      "number": 9,
+      "arabic": "ٱلْجَبَّارُ",
+      "transliteration": "Al-Jabbar",
+      "meaning": "The Compeller",
+      "description": "The One who compels His creation according to His will and mends what is broken.",
+      "benefit": "Heals broken hearts, mends difficult situations, and grants courage in adversity."
+    },
+    {
+      "number": 10,
+      "arabic": "ٱلْمُتَكَبِّرُ",
+      "transliteration": "Al-Mutakabbir",
+      "meaning": "The Supreme",
+      "description": "The One who is supremely great, who has the right to be proud, possessing all glory.",
+      "benefit": "Removes arrogance from the heart and helps one recognize true greatness."
+    },
+    {
+      "number": 11,
+      "arabic": "ٱلْخَالِقُ",
+      "transliteration": "Al-Khaliq",
+      "meaning": "The Creator",
+      "description": "The One who brings everything into existence from non-existence according to His perfect design.",
+      "benefit": "Increases creativity and helps manifest ideas into reality through divine inspiration."
+    },
+    {
+      "number": 12,
+      "arabic": "ٱلْبَارِئُ",
+      "transliteration": "Al-Bari",
+      "meaning": "The Originator",
+      "description": "The One who creates perfectly, without any precedent or model, in flawless harmony.",
+      "benefit": "Helps in creating new beginnings and brings order to chaotic situations."
+    },
+    {
+      "number": 13,
+      "arabic": "ٱلْمُصَوِّرُ",
+      "transliteration": "Al-Musawwir",
+      "meaning": "The Fashioner",
+      "description": "The One who shapes and forms all creation in perfect proportion and beautiful form.",
+      "benefit": "Brings beauty to life and helps in developing good character and appearance."
+    },
+    {
+      "number": 14,
+      "arabic": "ٱلْغَفَّارُ",
+      "transliteration": "Al-Ghaffar",
+      "meaning": "The Forgiving",
+      "description": "The One who forgives again and again, covering and pardoning all sins repeatedly.",
+      "benefit": "Grants forgiveness of sins and helps overcome guilt. Opens doors of repentance."
+    },
+    {
+      "number": 15,
+      "arabic": "ٱلْقَهَّارُ",
+      "transliteration": "Al-Qahhar",
+      "meaning": "The Subduer",
+      "description": "The One who dominates and has ultimate power over all creation with absolute authority.",
+      "benefit": "Overcomes enemies and obstacles. Grants victory over the ego and worldly temptations."
+    },
+    {
+      "number": 16,
+      "arabic": "ٱلْوَهَّابُ",
+      "transliteration": "Al-Wahhab",
+      "meaning": "The Bestower",
+      "description": "The One who continuously gives gifts and grants bounties without expecting anything in return.",
+      "benefit": "Brings abundance, unexpected blessings, and opens doors of provision and opportunity."
+    },
+    {
+      "number": 17,
+      "arabic": "ٱلْرَّزَّاقُ",
+      "transliteration": "Ar-Razzaq",
+      "meaning": "The Provider",
+      "description": "The One who provides all sustenance and nourishment, both physical and spiritual, to all creation.",
+      "benefit": "Increases provision and sustenance. Removes poverty and brings financial stability."
+    },
+    {
+      "number": 18,
+      "arabic": "ٱلْفَتَّاحُ",
+      "transliteration": "Al-Fattah",
+      "meaning": "The Opener",
+      "description": "The One who opens all doors, reveals solutions, and judges between truth and falsehood.",
+      "benefit": "Opens closed doors of opportunity, reveals solutions, and brings breakthrough in difficulties."
+    },
+    {
+      "number": 19,
+      "arabic": "ٱلْعَلِيمُ",
+      "transliteration": "Al-Aleem",
+      "meaning": "The All-Knowing",
+      "description": "The One whose knowledge encompasses everything, past, present, and future, seen and unseen.",
+      "benefit": "Increases knowledge and understanding. Helps in learning and gaining wisdom."
+    },
+    {
+      "number": 20,
+      "arabic": "ٱلْقَابِضُ",
+      "transliteration": "Al-Qabid",
+      "meaning": "The Constrictor",
+      "description": "The One who withholds and constricts provision or souls according to His divine wisdom.",
+      "benefit": "Helps control desires and brings discipline. Protects from overspending and excess."
+    },
+    {
+      "number": 21,
+      "arabic": "ٱلْبَاسِطُ",
+      "transliteration": "Al-Basit",
+      "meaning": "The Expander",
+      "description": "The One who expands provisions, hearts, and souls with generosity and abundance.",
+      "benefit": "Expands provision and opportunities. Brings relief from constraints and restrictions."
+    },
+    {
+      "number": 22,
+      "arabic": "ٱلْخَافِضُ",
+      "transliteration": "Al-Khafid",
+      "meaning": "The Abaser",
+      "description": "The One who lowers the status of the arrogant and proud according to His justice.",
+      "benefit": "Removes pride and arrogance. Brings humility and awareness of one's true nature."
+    },
+    {
+      "number": 23,
+      "arabic": "ٱلْرَّافِعُ",
+      "transliteration": "Ar-Rafi",
+      "meaning": "The Exalter",
+      "description": "The One who raises and elevates the status of the humble and righteous.",
+      "benefit": "Elevates status and brings honor. Grants recognition and success in endeavors."
+    },
+    {
+      "number": 24,
+      "arabic": "ٱلْمُعِزُّ",
+      "transliteration": "Al-Mu'izz",
+      "meaning": "The Giver of Honor",
+      "description": "The One who gives strength, power, and honor to whomever He wills.",
+      "benefit": "Brings honor, respect, and dignity. Strengthens position and grants influence."
+    },
+    {
+      "number": 25,
+      "arabic": "ٱلْمُذِلُّ",
+      "transliteration": "Al-Mudhill",
+      "meaning": "The Giver of Dishonor",
+      "description": "The One who humiliates and disgraces the arrogant according to divine justice.",
+      "benefit": "Protects from humiliation by enemies and removes false pride from the heart."
+    },
+    {
+      "number": 26,
+      "arabic": "ٱلْسَّمِيعُ",
+      "transliteration": "As-Sami",
+      "meaning": "The All-Hearing",
+      "description": "The One who hears all sounds, voices, and secrets, nothing escapes His hearing.",
+      "benefit": "Ensures prayers are heard and answered. Brings awareness that Allah listens to all."
+    },
+    {
+      "number": 27,
+      "arabic": "ٱلْبَصِيرُ",
+      "transliteration": "Al-Basir",
+      "meaning": "The All-Seeing",
+      "description": "The One who sees all that is visible and invisible, nothing is hidden from His sight.",
+      "benefit": "Increases insight and perception. Opens spiritual vision and understanding."
+    },
+    {
+      "number": 28,
+      "arabic": "ٱلْحَكَمُ",
+      "transliteration": "Al-Hakam",
+      "meaning": "The Judge",
+      "description": "The One who judges with perfect justice and whose judgment cannot be overturned.",
+      "benefit": "Grants justice in disputes and helps make wise decisions with clarity."
+    },
+    {
+      "number": 29,
+      "arabic": "ٱلْعَدْلُ",
+      "transliteration": "Al-Adl",
+      "meaning": "The Just",
+      "description": "The One who is absolutely fair and never does injustice to anyone.",
+      "benefit": "Brings fairness and justice. Helps overcome oppression and establishes truth."
+    },
+    {
+      "number": 30,
+      "arabic": "ٱلْلَّطِيفُ",
+      "transliteration": "Al-Latif",
+      "meaning": "The Subtle One",
+      "description": "The One who is kind, gentle, and works in subtle ways beyond human comprehension.",
+      "benefit": "Brings gentleness in affairs and reveals hidden solutions in difficult situations."
+    },
+    {
+      "number": 31,
+      "arabic": "ٱلْخَبِيرُ",
+      "transliteration": "Al-Khabir",
+      "meaning": "The All-Aware",
+      "description": "The One who is aware of all inner secrets and hidden realities.",
+      "benefit": "Increases awareness and understanding of hidden matters and inner truths."
+    },
+    {
+      "number": 32,
+      "arabic": "ٱلْحَلِيمُ",
+      "transliteration": "Al-Halim",
+      "meaning": "The Forbearing",
+      "description": "The One who is patient, does not rush to punish, and gives time for repentance.",
+      "benefit": "Increases patience and tolerance. Brings calmness and forbearance in difficulties."
+    },
+    {
+      "number": 33,
+      "arabic": "ٱلْعَظِيمُ",
+      "transliteration": "Al-Azim",
+      "meaning": "The Magnificent",
+      "description": "The One who is supremely great in power, status, and attributes beyond comprehension.",
+      "benefit": "Brings awe and magnifies one's purpose. Grants perspective on life's challenges."
+    },
+    {
+      "number": 34,
+      "arabic": "ٱلْغَفُورُ",
+      "transliteration": "Al-Ghafur",
+      "meaning": "The Forgiving",
+      "description": "The One who forgives and covers sins completely, as if they never happened.",
+      "benefit": "Grants complete forgiveness and helps overcome past mistakes with fresh starts."
+    },
+    {
+      "number": 35,
+      "arabic": "ٱلْشَّكُورُ",
+      "transliteration": "Ash-Shakur",
+      "meaning": "The Appreciative",
+      "description": "The One who appreciates and rewards even the smallest good deeds abundantly.",
+      "benefit": "Increases gratitude and brings multiplied rewards for good deeds and efforts."
+    },
+    {
+      "number": 36,
+      "arabic": "ٱلْعَلِيُّ",
+      "transliteration": "Al-Ali",
+      "meaning": "The Most High",
+      "description": "The One who is exalted above all creation in status, power, and authority.",
+      "benefit": "Elevates spiritual station and brings closeness to the divine presence."
+    },
+    {
+      "number": 37,
+      "arabic": "ٱلْكَبِيرُ",
+      "transliteration": "Al-Kabir",
+      "meaning": "The Most Great",
+      "description": "The One who is greater than anything that can be imagined or conceived.",
+      "benefit": "Makes worldly problems seem smaller and grants perspective on true greatness."
+    },
+    {
+      "number": 38,
+      "arabic": "ٱلْحَفِيظُ",
+      "transliteration": "Al-Hafiz",
+      "meaning": "The Preserver",
+      "description": "The One who preserves and protects all creation and never forgets anything.",
+      "benefit": "Provides protection and preservation. Safeguards from harm and loss."
+    },
+    {
+      "number": 39,
+      "arabic": "ٱلْمُقِيتُ",
+      "transliteration": "Al-Muqit",
+      "meaning": "The Sustainer",
+      "description": "The One who provides all necessary nourishment and sustains all creation perfectly.",
+      "benefit": "Ensures sustenance reaches you and provides what is needed at the right time."
+    },
+    {
+      "number": 40,
+      "arabic": "ٱلْحَسِيبُ",
+      "transliteration": "Al-Hasib",
+      "meaning": "The Reckoner",
+      "description": "The One who takes perfect account of all deeds and is sufficient for all needs.",
+      "benefit": "Brings sufficiency in all matters. Allah alone is enough for those who trust."
+    },
+    {
+      "number": 41,
+      "arabic": "ٱلْجَلِيلُ",
+      "transliteration": "Al-Jalil",
+      "meaning": "The Majestic",
+      "description": "The One who is majestic in greatness, worthy of reverence and exaltation.",
+      "benefit": "Brings majesty to character and grants respect in the eyes of others."
+    },
+    {
+      "number": 42,
+      "arabic": "ٱلْكَرِيمُ",
+      "transliteration": "Al-Karim",
+      "meaning": "The Generous",
+      "description": "The One who is extremely generous, giving abundantly without being asked.",
+      "benefit": "Brings generosity and abundance. Opens doors of unexpected provision and blessings."
+    },
+    {
+      "number": 43,
+      "arabic": "ٱلْرَّقِيبُ",
+      "transliteration": "Ar-Raqib",
+      "meaning": "The Watchful",
+      "description": "The One who watches over all creation with perfect awareness and care.",
+      "benefit": "Increases mindfulness and brings awareness that Allah watches over all actions."
+    },
+    {
+      "number": 44,
+      "arabic": "ٱلْمُجِيبُ",
+      "transliteration": "Al-Mujib",
+      "meaning": "The Responsive",
+      "description": "The One who responds to prayers and supplications of those who call upon Him.",
+      "benefit": "Ensures prayers are answered. Brings hope that supplications will be fulfilled."
+    },
+    {
+      "number": 45,
+      "arabic": "ٱلْوَاسِعُ",
+      "transliteration": "Al-Wasi",
+      "meaning": "The All-Encompassing",
+      "description": "The One whose knowledge, mercy, and power encompass all things without limit.",
+      "benefit": "Expands capacity and removes limitations. Brings vast opportunities and possibilities."
+    },
+    {
+      "number": 46,
+      "arabic": "ٱلْحَكِيمُ",
+      "transliteration": "Al-Hakim",
+      "meaning": "The Wise",
+      "description": "The One who is perfectly wise in all actions, decisions, and decrees.",
+      "benefit": "Grants wisdom in decisions and helps understand divine wisdom in all situations."
+    },
+    {
+      "number": 47,
+      "arabic": "ٱلْوَدُودُ",
+      "transliteration": "Al-Wadud",
+      "meaning": "The Loving",
+      "description": "The One who loves His righteous servants and is beloved by them.",
+      "benefit": "Brings love into life and creates bonds of affection between people."
+    },
+    {
+      "number": 48,
+      "arabic": "ٱلْمَجِيدُ",
+      "transliteration": "Al-Majid",
+      "meaning": "The Glorious",
+      "description": "The One who is most glorious, honorable, and praised in all His attributes.",
+      "benefit": "Brings glory and honor to one's endeavors and grants noble character."
+    },
+    {
+      "number": 49,
+      "arabic": "ٱلْبَاعِثُ",
+      "transliteration": "Al-Ba'ith",
+      "meaning": "The Resurrector",
+      "description": "The One who raises the dead and brings life after death on the Day of Resurrection.",
+      "benefit": "Revives hope and brings new life to dead matters and stagnant situations."
+    },
+    {
+      "number": 50,
+      "arabic": "ٱلْشَّهِيدُ",
+      "transliteration": "Ash-Shahid",
+      "meaning": "The Witness",
+      "description": "The One who witnesses all things, nothing is hidden from His awareness.",
+      "benefit": "Brings consciousness that Allah witnesses all actions, inspiring righteousness."
+    },
+    {
+      "number": 51,
+      "arabic": "ٱلْحَقُّ",
+      "transliteration": "Al-Haqq",
+      "meaning": "The Truth",
+      "description": "The One who is the ultimate truth and whose existence is the only absolute reality.",
+      "benefit": "Reveals truth and helps distinguish between truth and falsehood clearly."
+    },
+    {
+      "number": 52,
+      "arabic": "ٱلْوَكِيلُ",
+      "transliteration": "Al-Wakil",
+      "meaning": "The Trustee",
+      "description": "The One who is the best disposer of affairs and worthy of complete trust.",
+      "benefit": "Brings trust and reliance on Allah. Removes worry about outcomes and affairs."
+    },
+    {
+      "number": 53,
+      "arabic": "ٱلْقَوِيُّ",
+      "transliteration": "Al-Qawi",
+      "meaning": "The Strong",
+      "description": "The One who possesses ultimate strength and power without any weakness.",
+      "benefit": "Grants strength in weakness and provides power to overcome all obstacles."
+    },
+    {
+      "number": 54,
+      "arabic": "ٱلْمَتِينُ",
+      "transliteration": "Al-Matin",
+      "meaning": "The Firm",
+      "description": "The One whose strength is firm, unshakeable, and does not diminish or fail.",
+      "benefit": "Brings firmness and stability in faith and steadfastness in difficulties."
+    },
+    {
+      "number": 55,
+      "arabic": "ٱلْوَلِيُّ",
+      "transliteration": "Al-Wali",
+      "meaning": "The Protecting Friend",
+      "description": "The One who is the guardian, supporter, and protector of the believers.",
+      "benefit": "Provides protection, friendship, and support from the divine guardian."
+    },
+    {
+      "number": 56,
+      "arabic": "ٱلْحَمِيدُ",
+      "transliteration": "Al-Hamid",
+      "meaning": "The Praiseworthy",
+      "description": "The One who is worthy of all praise and thanks in all circumstances.",
+      "benefit": "Increases gratitude and brings blessings through praising Allah in all situations."
+    },
+    {
+      "number": 57,
+      "arabic": "ٱلْمُحْصِي",
+      "transliteration": "Al-Muhsi",
+      "meaning": "The Accounter",
+      "description": "The One who has counted and recorded all things in perfect detail.",
+      "benefit": "Brings awareness that all deeds are recorded, inspiring accountability."
+    },
+    {
+      "number": 58,
+      "arabic": "ٱلْمُبْدِئُ",
+      "transliteration": "Al-Mubdi",
+      "meaning": "The Originator",
+      "description": "The One who originates creation from nothing and begins all things.",
+      "benefit": "Helps in starting new projects and brings success in new beginnings."
+    },
+    {
+      "number": 59,
+      "arabic": "ٱلْمُعِيدُ",
+      "transliteration": "Al-Mu'id",
+      "meaning": "The Restorer",
+      "description": "The One who restores creation and brings back life after death.",
+      "benefit": "Restores what was lost and brings back good that has passed away."
+    },
+    {
+      "number": 60,
+      "arabic": "ٱلْمُحْيِي",
+      "transliteration": "Al-Muhyi",
+      "meaning": "The Giver of Life",
+      "description": "The One who gives life to the dead and brings into existence all living things.",
+      "benefit": "Revives dead hearts and brings life to lifeless situations and relationships."
+    },
+    {
+      "number": 61,
+      "arabic": "ٱلْمُمِيتُ",
+      "transliteration": "Al-Mumit",
+      "meaning": "The Bringer of Death",
+      "description": "The One who causes death and brings the soul's journey in this world to an end.",
+      "benefit": "Reminds of mortality and helps prioritize what truly matters in life."
+    },
+    {
+      "number": 62,
+      "arabic": "ٱلْحَيُّ",
+      "transliteration": "Al-Hayy",
+      "meaning": "The Ever-Living",
+      "description": "The One who is eternally alive and never dies, the source of all life.",
+      "benefit": "Brings vitality and life force. Revives spirit and energizes the soul."
+    },
+    {
+      "number": 63,
+      "arabic": "ٱلْقَيُّومُ",
+      "transliteration": "Al-Qayyum",
+      "meaning": "The Self-Sustaining",
+      "description": "The One who sustains all existence and is completely self-sufficient, needing nothing.",
+      "benefit": "Brings independence and self-sufficiency. Removes neediness and dependency."
+    },
+    {
+      "number": 64,
+      "arabic": "ٱلْوَاجِدُ",
+      "transliteration": "Al-Wajid",
+      "meaning": "The Finder",
+      "description": "The One who finds whatever He wills and lacks nothing, completely self-sufficient.",
+      "benefit": "Helps find what is sought and reveals hidden treasures and opportunities."
+    },
+    {
+      "number": 65,
+      "arabic": "ٱلْمَاجِدُ",
+      "transliteration": "Al-Majid",
+      "meaning": "The Noble",
+      "description": "The One who is most noble, glorious, and magnificent in all attributes.",
+      "benefit": "Brings nobility to character and grants dignity in all circumstances."
+    },
+    {
+      "number": 66,
+      "arabic": "ٱلْوَاحِدُ",
+      "transliteration": "Al-Wahid",
+      "meaning": "The One",
+      "description": "The One who is unique, alone in His divinity without partner or equal.",
+      "benefit": "Unifies the heart and removes confusion, bringing clarity and focus."
+    },
+    {
+      "number": 67,
+      "arabic": "ٱلْصَّمَدُ",
+      "transliteration": "As-Samad",
+      "meaning": "The Eternal",
+      "description": "The One who is eternally needed by all, while needing none, absolutely self-sufficient.",
+      "benefit": "Fulfills all needs and brings satisfaction. Allah is sufficient for all."
+    },
+    {
+      "number": 68,
+      "arabic": "ٱلْقَادِرُ",
+      "transliteration": "Al-Qadir",
+      "meaning": "The Capable",
+      "description": "The One who has perfect power and ability to do anything He wills.",
+      "benefit": "Grants capability and ability to achieve what seems impossible."
+    },
+    {
+      "number": 69,
+      "arabic": "ٱلْمُقْتَدِرُ",
+      "transliteration": "Al-Muqtadir",
+      "meaning": "The Powerful",
+      "description": "The One who has complete power and creates all power, determining all measures.",
+      "benefit": "Brings complete power over difficulties and grants mastery over situations."
+    },
+    {
+      "number": 70,
+      "arabic": "ٱلْمُقَدِّمُ",
+      "transliteration": "Al-Muqaddim",
+      "meaning": "The Expediter",
+      "description": "The One who brings forward and advances whom He wills in rank and status.",
+      "benefit": "Expedites matters and brings advancement in position and spiritual rank."
+    },
+    {
+      "number": 71,
+      "arabic": "ٱلْمُؤَخِّرُ",
+      "transliteration": "Al-Mu'akhkhir",
+      "meaning": "The Delayer",
+      "description": "The One who delays and holds back according to His wisdom and perfect timing.",
+      "benefit": "Brings patience and understanding of divine timing in delayed matters."
+    },
+    {
+      "number": 72,
+      "arabic": "ٱلْأَوَّلُ",
+      "transliteration": "Al-Awwal",
+      "meaning": "The First",
+      "description": "The One who is first, having no beginning, existing before all creation.",
+      "benefit": "Connects to the eternal and brings perspective beyond temporal concerns."
+    },
+    {
+      "number": 73,
+      "arabic": "ٱلْآخِرُ",
+      "transliteration": "Al-Akhir",
+      "meaning": "The Last",
+      "description": "The One who is last, having no end, remaining after all creation has perished.",
+      "benefit": "Prepares for the hereafter and brings focus on eternal matters."
+    },
+    {
+      "number": 74,
+      "arabic": "ٱلْظَّاهِرُ",
+      "transliteration": "Az-Zahir",
+      "meaning": "The Manifest",
+      "description": "The One who is evident and manifest through His signs in creation.",
+      "benefit": "Reveals truth and makes hidden matters apparent and clear."
+    },
+    {
+      "number": 75,
+      "arabic": "ٱلْبَاطِنُ",
+      "transliteration": "Al-Batin",
+      "meaning": "The Hidden",
+      "description": "The One who is hidden, whose essence cannot be known except through His attributes.",
+      "benefit": "Reveals hidden knowledge and unveils mysteries of the unseen."
+    },
+    {
+      "number": 76,
+      "arabic": "ٱلْوَالِي",
+      "transliteration": "Al-Wali",
+      "meaning": "The Governor",
+      "description": "The One who is the supreme governor, managing all affairs of creation.",
+      "benefit": "Brings good governance in affairs and management of responsibilities."
+    },
+    {
+      "number": 77,
+      "arabic": "ٱلْمُتَعَالِي",
+      "transliteration": "Al-Muta'ali",
+      "meaning": "The Most Exalted",
+      "description": "The One who is supremely exalted above any imperfection or limitation.",
+      "benefit": "Elevates status and raises spiritual rank beyond worldly concerns."
+    },
+    {
+      "number": 78,
+      "arabic": "ٱلْبَرُّ",
+      "transliteration": "Al-Barr",
+      "meaning": "The Source of Goodness",
+      "description": "The One who is the ultimate source of goodness, kindness, and righteousness.",
+      "benefit": "Brings goodness and righteousness. Inspires charitable deeds and kind actions."
+    },
+    {
+      "number": 79,
+      "arabic": "ٱلْتَّوَّابُ",
+      "transliteration": "At-Tawwab",
+      "meaning": "The Acceptor of Repentance",
+      "description": "The One who constantly accepts repentance and turns hearts back to Him.",
+      "benefit": "Opens doors of repentance and helps turn away from sins repeatedly."
+    },
+    {
+      "number": 80,
+      "arabic": "ٱلْمُنْتَقِمُ",
+      "transliteration": "Al-Muntaqim",
+      "meaning": "The Avenger",
+      "description": "The One who justly punishes wrongdoers and takes retribution for injustice.",
+      "benefit": "Protects from oppressors and brings justice against those who wrong others."
+    },
+    {
+      "number": 81,
+      "arabic": "ٱلْعَفُوُّ",
+      "transliteration": "Al-Afuww",
+      "meaning": "The Pardoner",
+      "description": "The One who pardons and erases sins completely, leaving no trace or consequence.",
+      "benefit": "Completely erases past mistakes and removes consequences of wrongdoing."
+    },
+    {
+      "number": 82,
+      "arabic": "ٱلْرَّؤُفُ",
+      "transliteration": "Ar-Ra'uf",
+      "meaning": "The Most Kind",
+      "description": "The One who is exceedingly compassionate and gentle with His creation.",
+      "benefit": "Brings gentleness and compassion. Softens difficult circumstances with kindness."
+    },
+    {
+      "number": 83,
+      "arabic": "ٱلْمَالِكُ ٱلْمُلْكُ",
+      "transliteration": "Malik-ul-Mulk",
+      "meaning": "Master of the Kingdom",
+      "description": "The One who owns and controls all sovereignty, giving dominion to whom He wills.",
+      "benefit": "Grants authority and leadership. Brings success in positions of responsibility."
+    },
+    {
+      "number": 84,
+      "arabic": "ٱلْذُو ٱلْجَلَالِ وَٱلْإِكْرَامُ",
+      "transliteration": "Dhul-Jalali Wal-Ikram",
+      "meaning": "Possessor of Glory and Honor",
+      "description": "The One who possesses majesty and bounty, deserving of veneration and generosity.",
+      "benefit": "Brings honor and glory. Grants nobility of character and generous spirit."
+    },
+    {
+      "number": 85,
+      "arabic": "ٱلْمُقْسِطُ",
+      "transliteration": "Al-Muqsit",
+      "meaning": "The Equitable",
+      "description": "The One who is perfectly just and fair, establishing justice with equity.",
+      "benefit": "Establishes justice and fairness. Brings balance and equity in all matters."
+    },
+    {
+      "number": 86,
+      "arabic": "ٱلْجَامِعُ",
+      "transliteration": "Al-Jami",
+      "meaning": "The Gatherer",
+      "description": "The One who gathers and assembles all creation on the Day of Judgment.",
+      "benefit": "Unites scattered affairs and brings people together in harmony and purpose."
+    },
+    {
+      "number": 87,
+      "arabic": "ٱلْغَنِيُّ",
+      "transliteration": "Al-Ghani",
+      "meaning": "The Self-Sufficient",
+      "description": "The One who is completely independent, needing nothing from creation.",
+      "benefit": "Brings contentment and freedom from need. Grants self-sufficiency and independence."
+    },
+    {
+      "number": 88,
+      "arabic": "ٱلْمُغْنِي",
+      "transliteration": "Al-Mughni",
+      "meaning": "The Enricher",
+      "description": "The One who enriches and makes others free from want and need.",
+      "benefit": "Brings wealth and enrichment. Removes poverty and grants abundance."
+    },
+    {
+      "number": 89,
+      "arabic": "ٱلْمَانِعُ",
+      "transliteration": "Al-Mani",
+      "meaning": "The Preventer",
+      "description": "The One who prevents and withholds according to His wisdom and protection.",
+      "benefit": "Protects from harm by preventing evil and dangerous situations."
+    },
+    {
+      "number": 90,
+      "arabic": "ٱلْضَّارُ",
+      "transliteration": "Ad-Darr",
+      "meaning": "The Distresser",
+      "description": "The One who can cause difficulty or harm according to His perfect wisdom.",
+      "benefit": "Understanding that trials come with wisdom helps accept and grow from difficulties."
+    },
+    {
+      "number": 91,
+      "arabic": "ٱلْنَّافِعُ",
+      "transliteration": "An-Nafi",
+      "meaning": "The Benefactor",
+      "description": "The One who benefits and grants profit and advantage to His creation.",
+      "benefit": "Brings benefit and advantage. Makes actions and efforts fruitful and productive."
+    },
+    {
+      "number": 92,
+      "arabic": "ٱلْنُّورُ",
+      "transliteration": "An-Nur",
+      "meaning": "The Light",
+      "description": "The One who is the light that illuminates all creation and guides to truth.",
+      "benefit": "Illuminates the path and brings clarity. Removes darkness from heart and life."
+    },
+    {
+      "number": 93,
+      "arabic": "ٱلْهَادِي",
+      "transliteration": "Al-Hadi",
+      "meaning": "The Guide",
+      "description": "The One who guides to the right path and enlightens hearts with truth.",
+      "benefit": "Provides guidance and shows the right path in times of confusion."
+    },
+    {
+      "number": 94,
+      "arabic": "ٱلْبَدِيعُ",
+      "transliteration": "Al-Badi",
+      "meaning": "The Incomparable",
+      "description": "The One who creates in unprecedented ways, beyond any example or comparison.",
+      "benefit": "Inspires unique creativity and helps create something new and unprecedented."
+    },
+    {
+      "number": 95,
+      "arabic": "ٱلْبَاقِي",
+      "transliteration": "Al-Baqi",
+      "meaning": "The Everlasting",
+      "description": "The One who remains forever, eternal and everlasting without end.",
+      "benefit": "Connects to the eternal and helps prioritize what lasts beyond this world."
+    },
+    {
+      "number": 96,
+      "arabic": "ٱلْوَارِثُ",
+      "transliteration": "Al-Warith",
+      "meaning": "The Inheritor",
+      "description": "The One who remains after all creation perishes and inherits everything.",
+      "benefit": "Reminds that all returns to Allah, bringing detachment from worldly possessions."
+    },
+    {
+      "number": 97,
+      "arabic": "ٱلْرَّشِيدُ",
+      "transliteration": "Ar-Rashid",
+      "meaning": "The Guide to the Right Path",
+      "description": "The One who is righteous and guides to righteousness with perfect wisdom.",
+      "benefit": "Guides to right decisions and brings wisdom in choosing the correct path."
+    },
+    {
+      "number": 98,
+      "arabic": "ٱلْصَّبُورُ",
+      "transliteration": "As-Sabur",
+      "meaning": "The Patient",
+      "description": "The One who is patient, does not rush to punishment, and gives time for change.",
+      "benefit": "Grants patience and perseverance. Helps endure trials with steadfastness."
+    },
+    {
+      "number": 99,
+      "arabic": "ٱلْمُجِيبُ ٱلدَّعَوَاتِ",
+      "transliteration": "Al-Mujib Ad-Da'awat",
+      "meaning": "The Answerer of Prayers",
+      "description": "The One who responds to all prayers and supplications of those who call.",
+      "benefit": "Ensures all sincere prayers are heard and answered at the perfect time."
+    }
+  ]
+}
