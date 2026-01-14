@@ -400,11 +400,11 @@ const ui = {
         const html = `
             <div class="collection-title">
                 <h1>${metadata.name || 'Hadith Result'}</h1>
-                <p>Hadith ${hadith.hadithnumber}</p>
+                <p>Hadith ${hadith.arabicnumber}</p>
             </div>
             <div class="hadith-container">
                 <div class="hadith-header">
-                    <div class="hadith-number">Hadith ${hadith.hadithnumber}</div>
+                    <div class="hadith-number">Hadith ${hadith.arabicnumber}</div>
                     <div class="hadith-actions">
                         <button class="hadith-action-btn ${isBookmarked ? 'bookmarked' : ''}" 
                                 data-collection="${collectionName}"
@@ -505,35 +505,54 @@ const ui = {
     },
 
     renderBookmarks() {
-        if (state.bookmarks.length === 0) {
-            elements.bookmarksContent.innerHTML = `
-                <div class="empty-state">
-                    <i class="fas fa-bookmark"></i>
-                    <p>No bookmarks yet</p>
-                </div>
-            `;
-            return;
-        }
-
-        elements.bookmarksContent.innerHTML = state.bookmarks.map(bookmark => `
-            <div class="bookmark-item">
-                <div class="bookmark-item-header">
-                    <span class="bookmark-ref">${bookmark.collection} - Hadith ${bookmark.hadithNumber}</span>
-                    <button class="bookmark-remove" data-bookmark-id="${bookmark.id}">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
-                <p class="bookmark-text">${bookmark.text}</p>
+    if (state.bookmarks.length === 0) {
+        elements.bookmarksContent.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-bookmark"></i>
+                <p>No bookmarks yet</p>
             </div>
-        `).join('');
-        
-        // Add event listeners to remove buttons
-        elements.bookmarksContent.querySelectorAll('.bookmark-remove').forEach(btn => {
-            btn.addEventListener('click', function() {
-                handlers.removeBookmark(this.dataset.bookmarkId);
-            });
+        `;
+        return;
+    }
+
+    elements.bookmarksContent.innerHTML = state.bookmarks.map(bookmark => `
+        <div class="bookmark-item" data-collection="${bookmark.collection}" data-hadith="${bookmark.hadithNumber}">
+            <div class="bookmark-item-header">
+                <span class="bookmark-ref">${bookmark.collection} - Hadith ${bookmark.hadithNumber}</span>
+                <button class="bookmark-remove" data-bookmark-id="${bookmark.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <p class="bookmark-text">${bookmark.text}</p>
+        </div>
+    `).join('');
+    
+    // Add event listeners to bookmark items (click to view)
+    elements.bookmarksContent.querySelectorAll('.bookmark-item').forEach(item => {
+        // Click anywhere on bookmark (except delete button) to view it
+        item.addEventListener('click', function(e) {
+            // Don't trigger if clicking the remove button
+            if (e.target.closest('.bookmark-remove')) return;
+            
+            const collection = this.dataset.collection;
+            const hadithNum = this.dataset.hadith;
+            
+            // Close modal
+            elements.bookmarksModal.classList.remove('show');
+            
+            // Search for and display the hadith
+            handlers.searchSpecificHadith(collection, hadithNum);
         });
-    },
+    });
+    
+    // Add event listeners to remove buttons (prevent propagation)
+    elements.bookmarksContent.querySelectorAll('.bookmark-remove').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent bookmark click
+            handlers.removeBookmark(this.dataset.bookmarkId);
+        });
+    });
+},
 
     updateAllBookmarkButtons() {
         // Update all bookmark buttons in the current view
@@ -674,7 +693,7 @@ const handlers = {
 },
 
 
-    async searchSpecificHadith(collectionName, hadithNumber) {
+    async searchSpecificHadith(collectionName, arabicnumber) {
     utils.showLoading();
     
     try {
@@ -694,7 +713,7 @@ const handlers = {
         elements.content.innerHTML = `
             <div class="welcome-screen">
                 <i class="fas fa-spinner fa-spin"></i>
-                <p>Searching for Hadith ${hadithNumber} in ${data.metadata.name}...</p>
+                <p>Searching for Hadith ${arabicnumber} in ${data.metadata.name}...</p>
                 <p style="font-size: 14px; color: var(--text-tertiary); margin-top: 8px;">
                     Searched <span id="search-progress">0</span>/${totalSections} sections
                 </p>
@@ -714,18 +733,14 @@ const handlers = {
                 if (progressEl) progressEl.textContent = searchedSections;
                 
                 if (hadithData && hadithData.hadiths) {
-                    // Try multiple matching strategies
                     const hadith = hadithData.hadiths.find(h => 
-                        // Exact hadith number match
-                        h.hadithnumber === hadithNumber || 
-                        h.hadithnumber === parseInt(hadithNumber) ||
-                        // Arabic number match
-                        h.arabicnumber === hadithNumber ||
-                        h.arabicnumber === parseInt(hadithNumber) ||
-                        // Reference book hadith number
+                        h.arabicnumber === arabicnumber || 
+                        h.arabicnumber === parseInt(arabicnumber) ||
+                        h.arabicnumber === arabicnumber ||
+                        h.arabicnumber === parseInt(arabicnumber) ||
                         (h.reference && (
-                            h.reference.hadith === hadithNumber ||
-                            h.reference.hadith === parseInt(hadithNumber)
+                            h.reference.hadith === arabicnumber ||
+                            h.reference.hadith === parseInt(arabicnumber)
                         ))
                     );
                     
@@ -736,42 +751,49 @@ const handlers = {
                             name: sectionName, 
                             data: hadithData 
                         };
-                        break; // Found it! Stop searching
+                        break;
                     }
                 }
             } catch (error) {
-                // Section fetch failed, continue to next
                 console.warn(`Failed to fetch section ${sectionKey}:`, error);
                 continue;
             }
         }
 
         if (foundHadith && foundSection) {
-            // Success! Display the hadith
+            // SUCCESS - Set state BEFORE any UI updates
             state.currentCollection = collectionName;
             state.currentSection = foundSection.key;
+            state.viewMode = 'books'; // IMPORTANT: Set this before rendering
             
-            // Update sidebar to show the collection and its books
+            // FIRST: Render the hadith (main content)
+            ui.renderSingleHadith(foundHadith, collectionName, foundSection.data.metadata);
+            
+            // THEN: Update sidebar (this won't interfere with content)
             ui.renderBooks(data.metadata.sections, collectionName);
             
-            // Highlight the book in sub-sidebar
+            // Highlight the book in sidebar
             const container = utils.isMobile() ? elements.sidebarContent : elements.subSidebarContent;
             const bookItem = container.querySelector(`[data-section="${foundSection.key}"]`);
             if (bookItem) {
                 ui.setActiveItem(bookItem, container);
             }
             
-            // Render the found hadith
-            ui.renderSingleHadith(foundHadith, collectionName, foundSection.data.metadata);
+            // On mobile, close sidebar after a brief delay (so user sees it found something)
+            if (utils.isMobile()) {
+                setTimeout(() => {
+                    utils.closeSidebar();
+                }, 300);
+            }
             
-            // Show success message briefly
-            showSearchSuccess(collectionName, hadithNumber, foundSection.name);
+            // Show success message
+            showSearchSuccess(collectionName, arabicnumber, foundSection.name);
             
         } else {
             // Not found
             utils.showError(`
                 <div style="max-width: 500px; margin: 0 auto;">
-                    <h3>Hadith ${hadithNumber} not found in ${data.metadata.name}</h3>
+                    <h3>Hadith ${arabicnumber} not found in ${data.metadata.name}</h3>
                     <p style="margin: 16px 0;">This could mean:</p>
                     <ul style="text-align: left; display: inline-block;">
                         <li>The hadith number doesn't exist in this collection</li>
@@ -780,21 +802,30 @@ const handlers = {
                     </ul>
                     <p style="margin-top: 16px;">
                         <button 
-                            class="mode-btn active" 
-                            onclick="handlers.loadCollection('${collectionName}')"
-                            style="margin-top: 16px;">
+                            class="browse-collection-btn" 
+                            data-collection="${collectionName}"
+                            style="padding: 12px 24px; background: var(--accent-primary); color: white; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">
                             Browse ${data.metadata.name}
                         </button>
                     </p>
                 </div>
             `);
+            
+            // Add event listener to browse button
+            setTimeout(() => {
+                const browseBtn = document.querySelector('.browse-collection-btn');
+                if (browseBtn) {
+                    browseBtn.addEventListener('click', function() {
+                        handlers.loadCollection(this.dataset.collection);
+                    });
+                }
+            }, 0);
         }
     } catch (error) {
         console.error('Error searching hadith:', error);
         utils.showError('Error searching for hadith. Please try again or browse manually.');
     }
 },
-
 
     toggleBookmark(collection, hadithNumber, text, buttonElement) {
         const id = `${collection}-${hadithNumber}`;
@@ -938,16 +969,22 @@ function initEventListeners() {
     });
 
     // Handle window resize
-    window.addEventListener('resize', () => {
-        // If switching from mobile to desktop or vice versa, refresh the sidebar view
+    let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        // Only reload if genuinely switching between mobile/desktop
         const wasMobile = state.viewMode === 'books' && elements.sidebarContent.querySelector('.back-to-collections');
         const isMobileNow = utils.isMobile();
         
-        if (wasMobile !== isMobileNow && state.viewMode === 'books' && state.currentCollection) {
-            // Reload books view with current collection
+        // IMPORTANT: Don't reload if we're in the middle of viewing a hadith
+        const isViewingHadith = state.currentSection && document.querySelector('.hadith-container');
+        
+        if (wasMobile !== isMobileNow && state.viewMode === 'books' && state.currentCollection && !isViewingHadith) {
             handlers.loadCollection(state.currentCollection);
         }
-    });
+    }, 300); // Debounce 300ms
+});
 }
 
 // ========================================
