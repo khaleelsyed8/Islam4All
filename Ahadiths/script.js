@@ -87,6 +87,11 @@ function findCollection(userInput, collections) {
     return null;
 }
 
+// Helper to get display number (Arabic number with fallback)
+function getDisplayNumber(hadith) {
+    return hadith.arabicnumber || hadith.hadithnumber || 'N/A';
+}
+
 // ========================================
 // DOM Elements
 // ========================================
@@ -392,7 +397,9 @@ const ui = {
     },
 
     renderSingleHadith(hadith, collectionName, metadata = {}) {
-        const isBookmarked = storage.isBookmarked(collectionName, hadith.hadithnumber);
+        // ALWAYS use Arabic number for display and bookmarking
+        const displayNumber = getDisplayNumber(hadith);
+        const isBookmarked = storage.isBookmarked(collectionName, displayNumber);
         const grades = hadith.grades?.map(g => 
             `${g.name}: <span class="${g.grade.toLowerCase().includes('sahih') ? 'grade-sahih' : ''}">${g.grade}</span>`
         ).join(', ') || 'N/A';
@@ -400,15 +407,15 @@ const ui = {
         const html = `
             <div class="collection-title">
                 <h1>${metadata.name || 'Hadith Result'}</h1>
-                <p>Hadith ${hadith.arabicnumber}</p>
+                <p>Hadith ${displayNumber}</p>
             </div>
             <div class="hadith-container">
                 <div class="hadith-header">
-                    <div class="hadith-number">Hadith ${hadith.arabicnumber}</div>
+                    <div class="hadith-number">Hadith ${displayNumber}</div>
                     <div class="hadith-actions">
                         <button class="hadith-action-btn ${isBookmarked ? 'bookmarked' : ''}" 
                                 data-collection="${collectionName}"
-                                data-hadith="${hadith.hadithnumber}"
+                                data-hadith="${displayNumber}"
                                 data-text="${utils.escapeHtml(hadith.text || '')}"
                                 title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}">
                             <i class="fas fa-bookmark"></i>
@@ -417,7 +424,6 @@ const ui = {
                 </div>
                 <div class="hadith-text">${hadith.text || 'Not available'}</div>
                 <div class="hadith-metadata">
-                    <p><strong>Arabic Number:</strong> ${hadith.arabicnumber || 'N/A'}</p>
                     <p><strong>Reference:</strong> Book ${hadith.reference?.book || 'N/A'}, Hadith ${hadith.reference?.hadith || 'N/A'}</p>
                     <p><strong>Grades:</strong> ${grades}</p>
                 </div>
@@ -462,7 +468,9 @@ const ui = {
         `;
 
         data.hadiths.forEach(hadith => {
-            const isBookmarked = storage.isBookmarked(state.currentCollection, hadith.hadithnumber);
+            // ALWAYS use Arabic number for display and bookmarking
+            const displayNumber = getDisplayNumber(hadith);
+            const isBookmarked = storage.isBookmarked(state.currentCollection, displayNumber);
             const grades = hadith.grades?.map(g => 
                 `${g.name}: <span class="${g.grade.toLowerCase().includes('sahih') ? 'grade-sahih' : ''}">${g.grade}</span>`
             ).join(', ') || 'N/A';
@@ -470,11 +478,11 @@ const ui = {
             html += `
                 <div class="hadith-container">
                     <div class="hadith-header">
-                        <div class="hadith-number">Hadith ${hadith.hadithnumber}</div>
+                        <div class="hadith-number">Hadith ${displayNumber}</div>
                         <div class="hadith-actions">
                             <button class="hadith-action-btn ${isBookmarked ? 'bookmarked' : ''}" 
                                     data-collection="${state.currentCollection}"
-                                    data-hadith="${hadith.hadithnumber}"
+                                    data-hadith="${displayNumber}"
                                     data-text="${utils.escapeHtml(hadith.text || '')}"
                                     title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}">
                                 <i class="fas fa-bookmark"></i>
@@ -483,7 +491,6 @@ const ui = {
                     </div>
                     <div class="hadith-text">${hadith.text || 'Not available'}</div>
                     <div class="hadith-metadata">
-                        <p><strong>Arabic Number:</strong> ${hadith.arabicnumber || 'N/A'}</p>
                         <p><strong>Reference:</strong> Book ${hadith.reference?.book || 'N/A'}, Hadith ${hadith.reference?.hadith || 'N/A'}</p>
                         <p><strong>Grades:</strong> ${grades}</p>
                     </div>
@@ -505,54 +512,54 @@ const ui = {
     },
 
     renderBookmarks() {
-    if (state.bookmarks.length === 0) {
-        elements.bookmarksContent.innerHTML = `
-            <div class="empty-state">
-                <i class="fas fa-bookmark"></i>
-                <p>No bookmarks yet</p>
-            </div>
-        `;
-        return;
-    }
+        if (state.bookmarks.length === 0) {
+            elements.bookmarksContent.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-bookmark"></i>
+                    <p>No bookmarks yet</p>
+                </div>
+            `;
+            return;
+        }
 
-    elements.bookmarksContent.innerHTML = state.bookmarks.map(bookmark => `
-        <div class="bookmark-item" data-collection="${bookmark.collection}" data-hadith="${bookmark.hadithNumber}">
-            <div class="bookmark-item-header">
-                <span class="bookmark-ref">${bookmark.collection} - Hadith ${bookmark.hadithNumber}</span>
-                <button class="bookmark-remove" data-bookmark-id="${bookmark.id}">
-                    <i class="fas fa-trash"></i>
-                </button>
+        elements.bookmarksContent.innerHTML = state.bookmarks.map(bookmark => `
+            <div class="bookmark-item" data-collection="${bookmark.collection}" data-hadith="${bookmark.hadithNumber}">
+                <div class="bookmark-item-header">
+                    <span class="bookmark-ref">${bookmark.collection} - Hadith ${bookmark.hadithNumber}</span>
+                    <button class="bookmark-remove" data-bookmark-id="${bookmark.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <p class="bookmark-text">${bookmark.text}</p>
             </div>
-            <p class="bookmark-text">${bookmark.text}</p>
-        </div>
-    `).join('');
-    
-    // Add event listeners to bookmark items (click to view)
-    elements.bookmarksContent.querySelectorAll('.bookmark-item').forEach(item => {
-        // Click anywhere on bookmark (except delete button) to view it
-        item.addEventListener('click', function(e) {
-            // Don't trigger if clicking the remove button
-            if (e.target.closest('.bookmark-remove')) return;
-            
-            const collection = this.dataset.collection;
-            const hadithNum = this.dataset.hadith;
-            
-            // Close modal
-            elements.bookmarksModal.classList.remove('show');
-            
-            // Search for and display the hadith
-            handlers.searchSpecificHadith(collection, hadithNum);
+        `).join('');
+        
+        // Add event listeners to bookmark items (click to view)
+        elements.bookmarksContent.querySelectorAll('.bookmark-item').forEach(item => {
+            // Click anywhere on bookmark (except delete button) to view it
+            item.addEventListener('click', function(e) {
+                // Don't trigger if clicking the remove button
+                if (e.target.closest('.bookmark-remove')) return;
+                
+                const collection = this.dataset.collection;
+                const hadithNum = this.dataset.hadith;
+                
+                // Close modal
+                elements.bookmarksModal.classList.remove('show');
+                
+                // Search for and display the hadith
+                handlers.searchSpecificHadith(collection, hadithNum);
+            });
         });
-    });
-    
-    // Add event listeners to remove buttons (prevent propagation)
-    elements.bookmarksContent.querySelectorAll('.bookmark-remove').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent bookmark click
-            handlers.removeBookmark(this.dataset.bookmarkId);
+        
+        // Add event listeners to remove buttons (prevent propagation)
+        elements.bookmarksContent.querySelectorAll('.bookmark-remove').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent bookmark click
+                handlers.removeBookmark(this.dataset.bookmarkId);
+            });
         });
-    });
-},
+    },
 
     updateAllBookmarkButtons() {
         // Update all bookmark buttons in the current view
@@ -627,205 +634,199 @@ const handlers = {
     },
 
     async handleSearch(query) {
-    const trimmedQuery = query.trim();
+        const trimmedQuery = query.trim();
 
-    // Empty search - show all collections
-    if (!trimmedQuery) {
+        // Empty search - show all collections
+        if (!trimmedQuery) {
+            const collections = await api.getCollections();
+            ui.renderCollections(collections);
+            state.viewMode = 'collections';
+            elements.subSidebar.classList.add('hidden');
+            return;
+        }
+
+        // ===== PATTERN 1: "collection number" or "collection:number" =====
+        // Matches: "bukhari 123", "bukhari:123", "bukhari2342", "abu dawud 456"
+        const hadithSearchPattern = /^(.+?)[\s:]*(\d+)$/i;
+        const match = trimmedQuery.match(hadithSearchPattern);
+
+        if (match) {
+            const collectionInput = match[1].trim();
+            const hadithNumber = match[2];
+            
+            const collections = await api.getCollections();
+            const foundCollection = findCollection(collectionInput, collections);
+
+            if (foundCollection) {
+                await handlers.searchSpecificHadith(foundCollection, hadithNumber);
+                return;
+            } else {
+                utils.showError(`Collection "${collectionInput}" not found. Available collections: Bukhari, Muslim, AbuDawud, Tirmidhi, IbnMajah, Nasai, Malik, Ahmad`);
+                return;
+            }
+        }
+
+        // ===== PATTERN 2: Just a number (search in current collection) =====
+        if (/^\d+$/.test(trimmedQuery)) {
+            if (state.currentCollection) {
+                await handlers.searchSpecificHadith(state.currentCollection, trimmedQuery);
+                return;
+            } else {
+                utils.showError('Please specify a collection. Example: "Bukhari 123" or select a collection first.');
+                return;
+            }
+        }
+
+        // ===== PATTERN 3: Collection name only - Load that collection =====
         const collections = await api.getCollections();
-        ui.renderCollections(collections);
-        state.viewMode = 'collections';
-        elements.subSidebar.classList.add('hidden');
-        return;
-    }
-
-    // ===== PATTERN 1: "collection number" or "collection:number" =====
-    // Matches: "bukhari 123", "bukhari:123", "bukhari2342", "abu dawud 456"
-    const hadithSearchPattern = /^(.+?)[\s:]*(\d+)$/i;
-    const match = trimmedQuery.match(hadithSearchPattern);
-
-    if (match) {
-        const collectionInput = match[1].trim();
-        const hadithNumber = match[2];
-        
-        const collections = await api.getCollections();
-        const foundCollection = findCollection(collectionInput, collections);
+        const foundCollection = findCollection(trimmedQuery, collections);
 
         if (foundCollection) {
-            await handlers.searchSpecificHadith(foundCollection, hadithNumber);
-            return;
-        } else {
-            utils.showError(`Collection "${collectionInput}" not found. Available collections: Bukhari, Muslim, AbuDawud, Tirmidhi, IbnMajah, Nasai, Malik, Ahmad`);
-            return;
-        }
-    }
-
-    // ===== PATTERN 2: Just a number (search in current collection) =====
-    if (/^\d+$/.test(trimmedQuery)) {
-        if (state.currentCollection) {
-            await handlers.searchSpecificHadith(state.currentCollection, trimmedQuery);
-            return;
-        } else {
-            utils.showError('Please specify a collection. Example: "Bukhari 123" or select a collection first.');
-            return;
-        }
-    }
-
-    // ===== PATTERN 3: Collection name only - Load that collection =====
-    const collections = await api.getCollections();
-    const foundCollection = findCollection(trimmedQuery, collections);
-
-    if (foundCollection) {
-        // Load the collection's books
-        await handlers.loadCollection(foundCollection);
-        
-        // Highlight it in sidebar
-        const collectionItem = elements.sidebarContent.querySelector(`[data-collection="${foundCollection}"]`);
-        if (collectionItem) {
-            ui.setActiveItem(collectionItem, elements.sidebarContent);
-        }
-        return;
-    }
-
-    // ===== PATTERN 4: Regular text search in collection names =====
-    ui.renderCollections(collections, trimmedQuery);
-    state.viewMode = 'collections';
-    elements.subSidebar.classList.add('hidden');
-},
-
-
-    async searchSpecificHadith(collectionName, arabicnumber) {
-    utils.showLoading();
-    
-    try {
-        // Load the collection metadata
-        const data = await api.getBooks(collectionName);
-        
-        if (!data || !data.metadata || !data.metadata.sections) {
-            utils.showError('Could not load collection data');
-            return;
-        }
-
-        // Show progress to user
-        const totalSections = Object.keys(data.metadata.sections).length;
-        let searchedSections = 0;
-        
-        // Update loading message with progress
-        elements.content.innerHTML = `
-            <div class="welcome-screen">
-                <i class="fas fa-spinner fa-spin"></i>
-                <p>Searching for Hadith ${arabicnumber} in ${data.metadata.name}...</p>
-                <p style="font-size: 14px; color: var(--text-tertiary); margin-top: 8px;">
-                    Searched <span id="search-progress">0</span>/${totalSections} sections
-                </p>
-            </div>
-        `;
-
-        let foundHadith = null;
-        let foundSection = null;
-
-        // Search through sections with progress updates
-        for (const [sectionKey, sectionName] of Object.entries(data.metadata.sections)) {
-            try {
-                const hadithData = await api.getHadiths(collectionName, sectionKey);
-                
-                searchedSections++;
-                const progressEl = document.getElementById('search-progress');
-                if (progressEl) progressEl.textContent = searchedSections;
-                
-                if (hadithData && hadithData.hadiths) {
-                    const hadith = hadithData.hadiths.find(h => 
-                        h.arabicnumber === arabicnumber || 
-                        h.arabicnumber === parseInt(arabicnumber) ||
-                        h.arabicnumber === arabicnumber ||
-                        h.arabicnumber === parseInt(arabicnumber) ||
-                        (h.reference && (
-                            h.reference.hadith === arabicnumber ||
-                            h.reference.hadith === parseInt(arabicnumber)
-                        ))
-                    );
-                    
-                    if (hadith) {
-                        foundHadith = hadith;
-                        foundSection = { 
-                            key: sectionKey, 
-                            name: sectionName, 
-                            data: hadithData 
-                        };
-                        break;
-                    }
-                }
-            } catch (error) {
-                console.warn(`Failed to fetch section ${sectionKey}:`, error);
-                continue;
+            // Load the collection's books
+            await handlers.loadCollection(foundCollection);
+            
+            // Highlight it in sidebar
+            const collectionItem = elements.sidebarContent.querySelector(`[data-collection="${foundCollection}"]`);
+            if (collectionItem) {
+                ui.setActiveItem(collectionItem, elements.sidebarContent);
             }
+            return;
         }
 
-        if (foundHadith && foundSection) {
-            // SUCCESS - Set state BEFORE any UI updates
-            state.currentCollection = collectionName;
-            state.currentSection = foundSection.key;
-            state.viewMode = 'books'; // IMPORTANT: Set this before rendering
+        // ===== PATTERN 4: Regular text search in collection names =====
+        ui.renderCollections(collections, trimmedQuery);
+        state.viewMode = 'collections';
+        elements.subSidebar.classList.add('hidden');
+    },
+
+    async searchSpecificHadith(collectionName, searchNumber) {
+        utils.showLoading();
+        
+        try {
+            // Load the collection metadata
+            const data = await api.getBooks(collectionName);
             
-            // FIRST: Render the hadith (main content)
-            ui.renderSingleHadith(foundHadith, collectionName, foundSection.data.metadata);
-            
-            // THEN: Update sidebar (this won't interfere with content)
-            ui.renderBooks(data.metadata.sections, collectionName);
-            
-            // Highlight the book in sidebar
-            const container = utils.isMobile() ? elements.sidebarContent : elements.subSidebarContent;
-            const bookItem = container.querySelector(`[data-section="${foundSection.key}"]`);
-            if (bookItem) {
-                ui.setActiveItem(bookItem, container);
+            if (!data || !data.metadata || !data.metadata.sections) {
+                utils.showError('Could not load collection data');
+                return;
             }
+
+            // Show progress to user
+            const totalSections = Object.keys(data.metadata.sections).length;
+            let searchedSections = 0;
             
-            // On mobile, close sidebar after a brief delay (so user sees it found something)
-            if (utils.isMobile()) {
-                setTimeout(() => {
-                    utils.closeSidebar();
-                }, 300);
-            }
-            
-            // Show success message
-            showSearchSuccess(collectionName, arabicnumber, foundSection.name);
-            
-        } else {
-            // Not found
-            utils.showError(`
-                <div style="max-width: 500px; margin: 0 auto;">
-                    <h3>Hadith ${arabicnumber} not found in ${data.metadata.name}</h3>
-                    <p style="margin: 16px 0;">This could mean:</p>
-                    <ul style="text-align: left; display: inline-block;">
-                        <li>The hadith number doesn't exist in this collection</li>
-                        <li>Different editions use different numbering</li>
-                        <li>Try browsing the collection manually</li>
-                    </ul>
-                    <p style="margin-top: 16px;">
-                        <button 
-                            class="browse-collection-btn" 
-                            data-collection="${collectionName}"
-                            style="padding: 12px 24px; background: var(--accent-primary); color: white; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">
-                            Browse ${data.metadata.name}
-                        </button>
+            // Update loading message with progress
+            elements.content.innerHTML = `
+                <div class="welcome-screen">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Searching for Hadith ${searchNumber} in ${data.metadata.name}...</p>
+                    <p style="font-size: 14px; color: var(--text-tertiary); margin-top: 8px;">
+                        Searched <span id="search-progress">0</span>/${totalSections} sections
                     </p>
                 </div>
-            `);
-            
-            // Add event listener to browse button
-            setTimeout(() => {
-                const browseBtn = document.querySelector('.browse-collection-btn');
-                if (browseBtn) {
-                    browseBtn.addEventListener('click', function() {
-                        handlers.loadCollection(this.dataset.collection);
-                    });
+            `;
+
+            let foundHadith = null;
+            let foundSection = null;
+
+            // Search through sections with progress updates
+            for (const [sectionKey, sectionName] of Object.entries(data.metadata.sections)) {
+                try {
+                    const hadithData = await api.getHadiths(collectionName, sectionKey);
+                    
+                    searchedSections++;
+                    const progressEl = document.getElementById('search-progress');
+                    if (progressEl) progressEl.textContent = searchedSections;
+                    
+                    if (hadithData && hadithData.hadiths) {
+                        // SEARCH ONLY BY ARABIC NUMBER (to match sunnah.com)
+                        const numToFind = parseInt(searchNumber);
+                        const hadith = hadithData.hadiths.find(h => 
+                            h.arabicnumber && parseInt(h.arabicnumber) === numToFind
+                        );
+                        
+                        if (hadith) {
+                            foundHadith = hadith;
+                            foundSection = { 
+                                key: sectionKey, 
+                                name: sectionName, 
+                                data: hadithData 
+                            };
+                            break;
+                        }
+                    }
+                } catch (error) {
+                    console.warn(`Failed to fetch section ${sectionKey}:`, error);
+                    continue;
                 }
-            }, 0);
+            }
+
+            if (foundHadith && foundSection) {
+                // SUCCESS - Set state BEFORE any UI updates
+                state.currentCollection = collectionName;
+                state.currentSection = foundSection.key;
+                state.viewMode = 'books'; // IMPORTANT: Set this before rendering
+                
+                // FIRST: Render the hadith (main content)
+                ui.renderSingleHadith(foundHadith, collectionName, foundSection.data.metadata);
+                
+                // THEN: Update sidebar (this won't interfere with content)
+                ui.renderBooks(data.metadata.sections, collectionName);
+                
+                // Highlight the book in sidebar
+                const container = utils.isMobile() ? elements.sidebarContent : elements.subSidebarContent;
+                const bookItem = container.querySelector(`[data-section="${foundSection.key}"]`);
+                if (bookItem) {
+                    ui.setActiveItem(bookItem, container);
+                }
+                
+                // On mobile, close sidebar after a brief delay (so user sees it found something)
+                if (utils.isMobile()) {
+                    setTimeout(() => {
+                        utils.closeSidebar();
+                    }, 300);
+                }
+                
+                // Show success message
+                showSearchSuccess(collectionName, searchNumber, foundSection.name);
+                
+            } else {
+                // Not found
+                utils.showError(`
+                    <div style="max-width: 500px; margin: 0 auto;">
+                        <h3>Hadith ${searchNumber} not found in ${data.metadata.name}</h3>
+                        <p style="margin: 16px 0;">This could mean:</p>
+                        <ul style="text-align: left; display: inline-block;">
+                            <li>The hadith number doesn't exist in this collection</li>
+                            <li>Different editions use different numbering</li>
+                            <li>Try browsing the collection manually</li>
+                        </ul>
+                        <p style="margin-top: 16px;">
+                            <button 
+                                class="browse-collection-btn" 
+                                data-collection="${collectionName}"
+                                style="padding: 12px 24px; background: var(--accent-primary); color: white; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">
+                                Browse ${data.metadata.name}
+                            </button>
+                        </p>
+                    </div>
+                `);
+                
+                // Add event listener to browse button
+                setTimeout(() => {
+                    const browseBtn = document.querySelector('.browse-collection-btn');
+                    if (browseBtn) {
+                        browseBtn.addEventListener('click', function() {
+                            handlers.loadCollection(this.dataset.collection);
+                        });
+                    }
+                }, 0);
+            }
+        } catch (error) {
+            console.error('Error searching hadith:', error);
+            utils.showError('Error searching for hadith. Please try again or browse manually.');
         }
-    } catch (error) {
-        console.error('Error searching hadith:', error);
-        utils.showError('Error searching for hadith. Please try again or browse manually.');
-    }
-},
+    },
 
     toggleBookmark(collection, hadithNumber, text, buttonElement) {
         const id = `${collection}-${hadithNumber}`;
@@ -970,21 +971,21 @@ function initEventListeners() {
 
     // Handle window resize
     let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        // Only reload if genuinely switching between mobile/desktop
-        const wasMobile = state.viewMode === 'books' && elements.sidebarContent.querySelector('.back-to-collections');
-        const isMobileNow = utils.isMobile();
-        
-        // IMPORTANT: Don't reload if we're in the middle of viewing a hadith
-        const isViewingHadith = state.currentSection && document.querySelector('.hadith-container');
-        
-        if (wasMobile !== isMobileNow && state.viewMode === 'books' && state.currentCollection && !isViewingHadith) {
-            handlers.loadCollection(state.currentCollection);
-        }
-    }, 300); // Debounce 300ms
-});
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Only reload if genuinely switching between mobile/desktop
+            const wasMobile = state.viewMode === 'books' && elements.sidebarContent.querySelector('.back-to-collections');
+            const isMobileNow = utils.isMobile();
+            
+            // IMPORTANT: Don't reload if we're in the middle of viewing a hadith
+            const isViewingHadith = state.currentSection && document.querySelector('.hadith-container');
+            
+            if (wasMobile !== isMobileNow && state.viewMode === 'books' && state.currentCollection && !isViewingHadith) {
+                handlers.loadCollection(state.currentCollection);
+            }
+        }, 300); // Debounce 300ms
+    });
 }
 
 // ========================================
